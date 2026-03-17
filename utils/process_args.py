@@ -243,6 +243,7 @@ def parser_gen():
     )
 
     args, unknown = parser.parse_known_args()
+    
 
     # assert (
     #     args.a_groupsize == args.w_groupsize
@@ -256,6 +257,7 @@ def process_args_ptq():
     ptq_args = None
 
     ptq_args, unknown_args = parser_gen()
+    # print(ptq_args, unknown_args)
 
     parser = transformers.HfArgumentParser((ModelArguments, TrainingArguments))
     model_args, training_args = parser.parse_args_into_dataclasses(args=unknown_args)
@@ -266,3 +268,7 @@ def process_args_ptq():
     ptq_args.bsz = training_args.per_device_eval_batch_size
 
     return model_args, training_args, ptq_args
+
+
+# if __name__ == "__main__":
+#     process_args_ptq()
