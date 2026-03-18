@@ -22,7 +22,7 @@ torchrun --nnodes=1 --nproc_per_node=2 optimize_rotation.py \
 --weight_decay 0. \
 --lr_scheduler_type "cosine" \
 --gradient_checkpointing True \
---save_safetensors False \
+--save_safetensors True \
 --max_steps 100 \
 --w_bits $2 \
 --a_bits $3 \
